@@ -1,4 +1,4 @@
-package TDD.part1.passwords;
+package TDD.part1.passwords.validator;
 
 public interface Validator {
 

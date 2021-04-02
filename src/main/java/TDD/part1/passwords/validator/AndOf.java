@@ -1,17 +1,19 @@
-package TDD.part1.passwords;
+package TDD.part1.passwords.validator;
 
 import java.util.List;
 
-public class PasswordValidator {
+public class AndOf implements Validator {
 
 	private List<Validator> _validators;
 
-	public PasswordValidator(List<Validator> validators) {
+	public AndOf(List<Validator> validators) {
 		_validators = validators;
 	}
 
+	@Override
 	public boolean isValid(String value) {
 		return _validators.stream().allMatch( v -> v.isValid(value));
 	}
+
 
 }

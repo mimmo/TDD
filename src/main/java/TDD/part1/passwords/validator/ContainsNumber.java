@@ -1,6 +1,6 @@
-package TDD.part1.passwords;
+package TDD.part1.passwords.validator;
 
-public class ContainsNumberValidator implements Validator {
+public class ContainsNumber implements Validator {
 
 	@Override
 	public boolean isValid(String value) {
