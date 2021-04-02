@@ -1,4 +1,4 @@
-package TDD.part1;
+package TDD.part1.numbers;
 
 import java.util.LinkedList;
 import java.util.List;
