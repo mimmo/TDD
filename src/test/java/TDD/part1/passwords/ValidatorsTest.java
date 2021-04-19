@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import TDD.part1.passwords.validator.AndOf;
 import TDD.part1.passwords.validator.ContainsLetter;
 import TDD.part1.passwords.validator.ContainsLowerCaseLetter;
 import TDD.part1.passwords.validator.ContainsNumber;
@@ -113,5 +114,14 @@ public class ValidatorsTest {
 		assertThat(new OrOf(List.of(s -> true, s -> true)).isValid("")).isTrue();
 		assertThat(new OrOf(List.of(s -> false, s -> true)).isValid("")).isTrue();
 		assertThat(new OrOf(List.of(s -> false, s -> false)).isValid("")).isFalse();
+	}
+
+	@Test
+	public void andOf() {
+		assertThat(new AndOf(List.of(s -> true)).isValid("")).isTrue();
+		assertThat(new AndOf(List.of(s -> false)).isValid("")).isFalse();
+		assertThat(new AndOf(List.of(s -> true, s -> true)).isValid("")).isTrue();
+		assertThat(new AndOf(List.of(s -> false, s -> true)).isValid("")).isFalse();
+		assertThat(new AndOf(List.of(s -> false, s -> false)).isValid("")).isFalse();
 	}
 }

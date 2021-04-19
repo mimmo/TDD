@@ -1,0 +1,72 @@
+- have a length greater than 7 character
+- contain at least one alphabetic char
+- contain at least one digit
+
+
+have a length greater than 7 character
+--------------------------------------
+@ length is too short
+PRE
+EXECUTE
+	validate(“p”)
+POST
+	false
+
+
+@ length is ok
+PRE
+EXECUTE
+	validate("12345678")
+POST
+	true
+
+contain at least one alphabetic char
+------------------------------------
+@ contain one alphabetic char
+PRE
+EXECUTE
+	validate(“p”)
+POST
+	true
+	
+@ contain one alphabetic char and digit
+PRE
+EXECUTE
+	validate(“p1”)
+POST
+	true
+	
+@ contain one alphabetic char in the middle of two digits
+PRE
+EXECUTE
+	validate(“1p1”)
+POST
+	true
+
+@ contain one alphabetic char when boundary
+PRE
+EXECUTE
+	validate(“p1p”)
+POST
+	true
+
+@ contains only digits
+PRE
+EXECUTE
+	validate(“1”)
+POST
+	false
+	
+@ contains only symbols
+PRE
+EXECUTE
+	validate(“1”)
+POST
+	false
+	
+@ contains an empty space
+PRE
+EXECUTE
+	validate(“ ")
+POST
+	false
